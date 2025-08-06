@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercury Enginnering | Premium Solar Solutions</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Custom CSS -->
+    <!-- Bootstrap CSS -->
+    <style>
+        :root {
+            --primary-color: #2ECC71;
+            --secondary-color: #3498DB;
+            --dark-color: #2C3E50;
+            --light-color: #ECF0F1;
+            --accent-color: #F39C12;
+            --text-dark: #333;
+            --text-light: #fff;
+            --transition: all 0.4s ease;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--light-color);
+            transition: var(--transition);
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        /* Loader */
+        .loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--light-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader {
+            width: 80px;
+            height: 80px;
+            border: 8px solid rgba(46, 204, 113, 0.2);
+            border-top: 8px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1.5s linear infinite;
+            position: relative;
+        }
+
+        .loader::after {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--accent-color), 0 0 40px var(--accent-color);
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            transition: var(--transition);
+        }
+
+        .navbar-brand img {
+            height: 40px;
+            transition: var(--transition);
+        }
+
+        .nav-link {
+            color: var(--dark-color) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .navbar-toggler {
+            border: none;
+            padding: 0.5rem;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        .navbar-toggler-icon {
+            background-image: none;
+            position: relative;
+            width: 24px;
+            height: 2px;
+            background-color: var(--dark-color);
+            transition: var(--transition);
+        }
+
+
+
+        .navbar-toggler-icon::before,
+        .navbar-toggler-icon::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 2px;
+            background-color: var(--dark-color);
+            transition: var(--transition);
+        }
+
+
+
+        .navbar-toggler-icon::before {
+            transform: translateY(-8px);
+        }
+
+        .navbar-toggler-icon::after {
+            transform: translateY(8px);
+        }
+
+        /* Hero Section */
+        /* Hero Section */
+        /* Hero Section with Background Carousel */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 700px;
+            overflow: hidden;
+        }
+
+        #heroCarousel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        #heroCarousel .carousel-item {
+            height: 100%;
+        }
+
+        #heroCarousel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.7);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 100%);
+        }
+
+        .hero-content {
+            color: white;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .btn-primary:hover {
+            background-color: #27AE60;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(46, 204, 113, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 10px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        /* Carousel Controls */
+        .carousel-control-prev,
+        .carousel-control-next {
+            z-index: 2;
+            width: 5%;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            background-size: 60%;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-control-prev-icon:hover,
+        .carousel-control-next-icon:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                height: 90vh;
+                min-height: 600px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .hero-btns {
+                justify-content: center;
+            }
+
+            .hero-overlay {
+                background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 100%);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                height: 80vh;
+                min-height: 500px;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80') no-repeat center center/cover;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark-color);
+        }
+
+
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .about-img {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .about-img:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            transition: var(--transition);
+        }
+
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(46, 204, 113, 0.03) 0%, rgba(52, 152, 219, 0.03) 100%);
+        }
+
+
+
+        .service-card {
+            background-color: var(--light-color);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            height: 100%;
+        }
+
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+
+
+        .service-card p {
+            color: var(--text-dark);
+            opacity: 0.9;
+        }
+
+
+
+        /* Portfolio Section */
+
+
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(46, 204, 113, 0.03) 0%, rgba(52, 152, 219, 0.03) 100%);
+        }
+
+
+
+        .contact-info {
+            margin-bottom: 40px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .contact-text h5 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+
+
+        .contact-text p,
+        .contact-text a {
+            color: var(--text-dark);
+            opacity: 0.9;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+
+
+        .contact-text a:hover {
+            color: var(--primary-color);
+        }
+
+        .social-links {
+            display: flex;
+            margin-top: 30px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+
+
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .contact-form {
+            background-color: var(--light-color);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+
+
+        .form-control {
+            height: 50px;
+            border-radius: 5px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            padding-left: 15px;
+            margin-bottom: 20px;
+            background-color: var(--light-color);
+            color: var(--text-dark);
+            transition: var(--transition);
+        }
+
+
+        .form-control:focus {
+            box-shadow: none;
+            border-color: var(--primary-color);
+        }
+
+        textarea.form-control {
+            height: 150px;
+            padding-top: 15px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+
+        .footer-logo img {
+            height: 40px;
+            margin-bottom: 20px;
+        }
+
+        .footer-about p {
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .footer-links h4 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-links h4::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: white;
+            opacity: 0.8;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+            transform: translateX(5px);
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 20px rgba(52, 152, 219, 0.4);
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.6);
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            z-index: 99;
+            transition: var(--transition);
+        }
+
+        .whatsapp-float:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+        }
+
+        /* Theme Toggle */
+
+
+
+
+        /* Responsive Styles */
+        @media (max-width: 1199.98px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 991.98px) {
+            .hero {
+                height: auto;
+                padding: 150px 0 100px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-btns .btn-secondary {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+
+            .about-img {
+                margin-bottom: 40px;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .navbar {
+                padding: 10px 0;
+            }
+
+            .navbar-brand img {
+                height: 35px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .contact-form {
+                padding: 30px 20px;
+            }
+
+            .footer {
+                padding: 40px 0 20px;
+            }
+
+            .footer-links {
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .sun-animation {
+                width: 70px;
+                height: 70px;
+                top: 10%;
+                right: 5%;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                bottom: 20px;
+                left: 20px;
+            }
+
+            .back-to-top {
+                width: 45px;
+                height: 45px;
+                font-size: 1rem;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        /* Animation Classes */
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .animate-pulse {
+            animation: pulse 2s ease infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .animate-glow {
+            animation: glow 3s ease infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 10px rgba(46, 204, 113, 0.5);
+            }
+
+            to {
+                box-shadow: 0 0 20px rgba(46, 204, 113, 0.8);
+            }
+        }
+
+        .energy-flow {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .energy-flow::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: energyFlow 3s linear infinite;
+        }
+
+        @keyframes energyFlow {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 150%;
+            }
+        }
+
+        /* faqs */
+        /* FAQ Section */
+        .faq {
+            padding: 100px 0;
+            background-color: #f8f9fa;
+        }
+
+        .faq .section-title p {
+            color: #555;
+            opacity: 0.9;
+        }
+
+        .accordion {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .accordion-item {
+            background-color: #fff;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            margin-bottom: 15px;
+            border-radius: 8px !important;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .accordion-item:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .accordion-button {
+            background-color: #fff;
+            color: #333;
+            font-weight: 600;
+            padding: 20px 25px;
+            box-shadow: none;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .accordion-button:not(.collapsed) {
+            color: #2ecc71;
+            background-color: rgba(46, 204, 113, 0.1);
+        }
+
+        .accordion-button::after {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%232ecc71'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+            transition: 0.3s;
+        }
+
+        .accordion-button:not(.collapsed)::after {
+            transform: rotate(-180deg);
+        }
+
+        .accordion-body {
+            padding: 20px 25px;
+            background-color: #fff;
+            color: #555;
+        }
+
+        .accordion-body p {
+            margin-bottom: 0;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Loader -->
+    <div class="loader-wrapper">
+        <div class="loader"></div>
+    </div>
+
+    <!-- WhatsApp Float -->
+    <a href="https://api.whatsapp.com/send?phone=923075569072&text=Hi%20can%20I%20get%20some%20information"
+        class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp fs-3"></i>
+    </a>
+
+
+
+
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <img src="logo.jpg" alt="Mercury Enginnering"> Mercury Enginnering
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faqAccordion">FAQ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <!-- Background Carousel -->
+        <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <img src="solar-plate-price-in-pakistan.webp" class="d-block w-100" alt="Solar Farm Installation">
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <img src="solar2.png" class="d-block w-100" alt="Residential Solar Panels">
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="carousel-item">
+                    <img src="solar3.jpg" class="d-block w-100" alt="Professional Installation">
+                </div>
+            </div>
+        </div>
+
+        <!-- Overlay Content -->
+        <div class="hero-overlay">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="animate__animated animate__fadeInDown">Harness the Power of the Sun</h1>
+                    <p class="animate__animated animate__fadeIn animate__delay-1s">
+                        Mercury Engineering provides premium solar solutions for homes and businesses, helping you save
+                        money while protecting the environment.
+                    </p>
+                    <div class="hero-btns animate__animated animate__fadeInUp animate__delay-1s">
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="fas fa-solar-panel me-2"></i> Contact Us
+                        </a>
+                        <a href="#services" class="btn btn-secondary">
+                            <i class="fas fa-search me-2"></i> Our Services
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="section-title" data-aos="fade-up">
+                        <h2>Our Services</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-solar-panel"></i>
+                        </div>
+                        <h3>Solar Panel Installation</h3>
+                        <p>Professional installation of high-efficiency solar panels tailored to your energy needs and
+                            roof specifications.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3>Residential Solar Solutions</h3>
+                        <p>Custom solar solutions for homeowners looking to reduce energy bills and increase property
+                            value.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3>Commercial Solar Projects</h3>
+                        <p>Large-scale solar installations for businesses, factories, and commercial properties.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3>Maintenance & Support</h3>
+                        <p>Comprehensive maintenance packages to keep your solar system running at peak efficiency.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Energy Monitoring</h3>
+                        <p>Real-time monitoring systems to track your energy production and consumption.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3>Free Consultation</h3>
+                        <p>Expert advice and customized solar solutions with no obligation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="section-title" data-aos="fade-up">
+                        <h2>About Mercury Enginnering</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="about-img" data-aos="fade-right">
+                        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                            alt="Solar Panels">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-content" data-aos="fade-left">
+                        <p><strong>Mercury Engineering</strong> is Pakistan's new solar energy partner, bringing fresh
+                            ideas to help you <strong>join the solar revolution</strong>. We're passionate about helping
+                            homes and businesses <strong>say goodbye to unreliable power and high bills</strong>. Our
+                            young team offers modern <strong>low-maintenance solar solutions</strong> with complete
+                            support for <strong>on-grid and hybrid systems</strong>. What we lack in years, we make up
+                            in enthusiasm, cutting edge knowledge, and commitment to your satisfaction. <strong>contact
+                                us today</strong> let's build Pakistan's solar future together!</p>
+                        <div class="energy-flow p-3 mt-4 rounded" style="background-color: rgba(46, 204, 113, 0.1);">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-bolt text-warning me-3 fs-4"></i>
+                                <p class="mb-0"><strong>Our solar systems are optimized to maximize energy production
+                                        and minimize your carbon footprint.</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="section-title" data-aos="fade-up">
+                        <h2>Contact Us</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5" data-aos="fade-right">
+                    <div class="contact-info">
+                        <h3>Get in Touch</h3>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h5>Address</h5>
+                                    <p>Mobile Plaza, Main Kalma Chowk, Phase 4-A, Ghouri Town, Islamabad, Pakistan</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h5>Phone</h5>
+                                    <p><a href="tel:+92 314 5333719">+92 (314) 5333719</a></p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h5>Email</h5>
+                                    <p><a
+                                            href="mailto:mercuryengineerings07@gmail.com">mercuryengineerings07@gmail.com</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <h3>Follow Us</h3>
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/share/1HqRyLPhoH/?mibextid=wwXIfr" class="social-link"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/mercury_engineering7?igsh=MTlvZGFzMnY0cnhheQ=="
+                                class="social-link"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7" data-aos="fade-left">
+                    <div class="contact-form">
+                        <form action="https://formsubmit.co/9ab16e2f0a81f186f0ec77e2a41501d9  " method="POST">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="name" placeholder="Your Name"
+                                            required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" name="email" placeholder="Your Email"
+                                            required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="subject" placeholder="Subject" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" class="form-control" name="phone" placeholder="Phone Number" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" name="message" rows="5" placeholder="Your Message"
+                                    required></textarea>
+                            </div>
+
+                            <!-- Spam Protection -->
+                            <input type="text" name="_honey" style="display:none">
+
+                            <!-- Redirect to thank you page -->
+                            <input type="hidden" name="_next"
+                                value="https://abdullah-khan08.github.io/Mercury-Engineering-/">
+
+                            <!-- Disable CAPTCHA (optional) -->
+                            <input type="hidden" name="_captcha" value="false">
+
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Faqs Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="section-title" data-aos="fade-up">
+                        <h2>Frequently Asked Questions</h2>
+                        <p class="mt-3">Find answers to common questions about solar energy solutions</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion">
+
+                        <!-- FAQ 1 -->
+                        <div class="accordion-item" data-aos="fade-up" data-aos-delay="100">
+                            <h3 class="accordion-header" id="headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne">
+                                    How much do solar panels cost for an average home?
+                                </button>
+                            </h3>
+                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                                data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    The cost of solar panels is minimum Rs 1.5 lakh to after tax credits, and cost my be
+                                    increased
+                                    depending on system size and location.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 2 -->
+                        <div class="accordion-item" data-aos="fade-up" data-aos-delay="200">
+                            <h3 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseTwo">
+                                    How long does solar panel installation take?
+                                </button>
+                            </h3>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Residential installations usually take 1-3 days.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 3 -->
+                        <div class="accordion-item" data-aos="fade-up" data-aos-delay="300">
+                            <h3 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseThree">
+                                    Do solar panels work during power outages?
+                                </button>
+                            </h3>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                                data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Standard grid tied solar systems shut down during outages for safety. Backup
+                                    batteries are required for power during outages.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 4 -->
+                        <div class="accordion-item" data-aos="fade-up" data-aos-delay="400">
+                            <h3 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseFour">
+                                    How long do solar panels last?
+                                </button>
+                            </h3>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                                data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Solar panels typically last 25-30 years and continue to produce electricity beyond
+                                    their warranty period.
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="text-center mt-5" data-aos="fade-up">
+                        <p>Still have questions? We're happy to help!</p>
+                        <a href="#contact" class="btn btn-primary">Contact Our Team</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-about">
+                        <div class="footer-logo">
+                            <img src="logo.jpg" alt="Mercury Enginnering Logo"> Mercury Enginnering
+                        </div>
+                        <p>Mercury Enginnering is committed to providing high quality solar energy solutions for
+                            residential and commercial properties across Pakistan.</p>
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/share/1HqRyLPhoH/?mibextid=wwXIfr" class="social-link"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/mercury_engineering7?igsh=MTlvZGFzMnY0cnhheQ=="
+                                class="social-link"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-links">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-links">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#about">Solar Panel Installation</a></li>
+                            <li><a href="#about">Residential Solutions</a></li>
+                            <li><a href="#about">Commercial Projects</a></li>
+                            <li><a href="#about">Maintenance & Support</a></li>
+                            <li><a href="#about">Energy Monitoring</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-contact">
+                        <h4>Contact Info</h4>
+                        <ul>
+                            <li><i class="fas fa-map-marker-alt me-2"></i> Mobile Plaza, Main Kalma Chowk, Phase 4-A, Ghouri Town, Islamabad, Pakistan
+                            </li>
+                            <li><i class="fas fa-phone-alt me-2"></i> +92 314 5333719</li>
+                            <li><i class="fas fa-envelope me-2"> </i> mercuryengineerings07
+                                @gmail.com</li>
+                            <li><i class="fas fa-clock me-2"></i> Mon-Fri: 9AM - 6PM</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer-bottom">
+                        <p>&copy; 2025 Mercury Enginnering. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Counter Up -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+    <!-- Waypoints -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <!-- Slick Slider -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        // Loader
+        $(window).on('load', function () {
+            $('.loader-wrapper').fadeOut('slow');
+        });
+
+        // AOS Animation
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Counter Up
+        $('.counter').counterUp({
+            delay: 10,
+            time: 1000
+        });
+
+        // Testimonial Slider
+        $('.testimonial-slider').slick({
+            dots: true,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 1,
+            adaptiveHeight: true,
+            autoplay: true,
+            autoplaySpeed: 5000,
+            arrows: false
+        });
+
+        // Portfolio Filter
+        $('.filter-btn').on('click', function () {
+            $('.filter-btn').removeClass('active');
+            $(this).addClass('active');
+
+            var filter = $(this).data('filter');
+            if (filter === 'all') {
+                $('.portfolio-item').show();
+            } else {
+                $('.portfolio-item').hide();
+                $('.portfolio-item[data-category="' + filter + '"]').show();
+            }
+        });
+
+        // Back to Top
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 300) {
+                $('.back-to-top').addClass('active');
+            } else {
+                $('.back-to-top').removeClass('active');
+            }
+        });
+
+        $('.back-to-top').on('click', function (e) {
+            e.preventDefault();
+            $('html, body').animate({ scrollTop: 0 }, '300');
+        });
+
+        // Smooth Scrolling
+        $('a[href*="#"]').on('click', function (e) {
+            e.preventDefault();
+
+            $('html, body').animate(
+                {
+                    scrollTop: $($(this).attr('href')).offset().top - 80,
+                },
+                500,
+                'linear'
+            );
+        });
+
+        // Navbar Scroll Effect
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 100) {
+                $('.navbar').addClass('scrolled');
+            } else {
+                $('.navbar').removeClass('scrolled');
+            }
+        });
+
+
+
+
+        // Form Submission
+        $('#contactForm').on('submit', function (e) {
+            e.preventDefault();
+
+            // Get form values
+            var name = $('#name').val();
+            var email = $('#email').val();
+            var subject = $('#subject').val();
+            var phone = $('#phone').val();
+            var message = $('#message').val();
+
+            // Here you would typically send the form data to your server
+            // For demonstration, we'll just show an alert
+            alert('Thank you, ' + name + '! Your message has been sent. We will contact you soon.');
+
+            // Reset form
+            $('#contactForm')[0].reset();
+        });
+
+        // Solar Panel Glow Animation
+        function animateSolarPanels() {
+            $('.service-card').each(function (index) {
+                $(this).hover(
+                    function () {
+                        $(this).find('.service-icon').addClass('animate-glow');
+                    },
+                    function () {
+                        $(this).find('.service-icon').removeClass('animate-glow');
+                    }
+                );
+            });
+        }
+
+        animateSolarPanels();
+
+        // Energy Flow Animation
+        setInterval(function () {
+            $('.energy-flow').each(function () {
+                $(this).toggleClass('energy-flow-active');
+            });
+        }, 3000);
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            let name = document.getElementById('name').value.trim();
+            let email = document.getElementById('email').value.trim();
+            let subject = document.getElementById('subject').value.trim();
+            let phone = document.getElementById('phone').value.trim();
+            let message = document.getElementById('message').value.trim();
+
+            let namePattern = /^[A-Za-z\s]+$/;               // Only alphabets and spaces
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Proper email format
+            let phonePattern = /^[0-9]{10,15}$/;             // Only digits, 10 to 15 numbers
+
+            // Check empty fields
+            if (name === '' || email === '' || subject === '' || phone === '' || message === '') {
+                alert('Please fill out all fields.');
+                e.preventDefault();
+                return;
+            }
+
+            // Name validation: Only alphabets
+            if (!namePattern.test(name)) {
+                alert('Please enter a valid name (alphabets only).');
+                e.preventDefault();
+                return;
+            }
+
+            // Email validation
+            if (!emailPattern.test(email)) {
+                alert('Please enter a valid email address.');
+                e.preventDefault();
+                return;
+            }
+
+            // Phone validation: Only numbers
+            if (!phonePattern.test(phone)) {
+                alert('Please enter a valid phone number (10 to 15 digits, numbers only).');
+                e.preventDefault();
+                return;
+            }
+
+            // If all validations pass, form will be submitted
+            // You can add loading animation here if you want
+        });
+        // Accordion Animation
+        document.querySelectorAll('.accordion-button').forEach(button => {
+            button.addEventListener('click', () => {
+                button.classList.toggle('active');
+                button.parentElement.parentElement.classList.toggle('active');
+            });
+        });
+
+
+    </script>
+</body>
+
+</html>
